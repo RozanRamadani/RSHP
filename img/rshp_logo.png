@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSHP - Rumah Sakit Hewan Pendidikan</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        .navbar {
+            background: #0077b6;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar li {
+            margin: 0;
+        }
+        .navbar a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 24px;
+            transition: background 0.2s;
+        }
+        .navbar a:hover {
+            background: #023e8a;
+        }
+        .container {
+            max-width: 900px;
+            margin: 32px auto;
+            background: #fff;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        h1, h2, h3 { color: #023e8a; }
+        img.logo { width: 120px; float: right; margin-left: 24px; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #caf0f8; }
+        ul, ol { margin-left: 24px; }
+        .clear { clear: both; }
+        @media (max-width: 600px) {
+            .container { padding: 12px; }
+            img.logo { width: 80px; }
+            .navbar a { padding: 12px 8px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#struktur">Struktur Organisasi</a></li>
+            <li><a href="#layanan">Layanan Umum</a></li>
+            <li><a href="#visi">Visi Misi dan Tujuan</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <img src="img/rshp_logo.png" alt="Logo RSHP" class="logo">
+            <h1>Rumah Sakit Hewan Pendidikan (RSHP) Universitas Airlangga</h1>
+            <p><b>RSHP</b> adalah rumah sakit hewan pendidikan terkemuka di Indonesia yang berlokasi di Surabaya, Jawa Timur. Kami menyediakan layanan kesehatan hewan yang komprehensif, mulai dari pemeriksaan rutin hingga tindakan medis lanjutan, serta menjadi pusat pendidikan dan penelitian di bidang kedokteran hewan.</p>
+            <div class="clear"></div>
+        </section>
+        <hr>
+        <section id="struktur">
+            <h2>Struktur Organisasi</h2>
+            <table>
+                <tr>
+                    <th>Jabatan</th>
+                    <th>Nama</th>
+                </tr>
+                <tr>
+                    <td>Kepala RSHP</td>
+                    <td>drh. Andi Setiawan, M.Vet</td>
+                </tr>
+                <tr>
+                    <td>Wakil Kepala</td>
+                    <td>drh. Siti Rahmawati</td>
+                </tr>
+                <tr>
+                    <td>Bagian Administrasi</td>
+                    <td>Rina Susanti</td>
+                </tr>
+                <tr>
+                    <td>Bagian Medis</td>
+                    <td>drh. Budi Santoso</td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+        <section id="layanan">
+            <h2>Layanan Umum</h2>
+            <ul>
+                <li>Pemeriksaan Kesehatan Hewan</li>
+                <li>Vaksinasi dan Sterilisasi</li>
+                <li>Bedah Minor dan Mayor</li>
+                <li>Rawat Inap</li>
+                <li>Laboratorium Diagnostik</li>
+                <li>Konsultasi Dokter Hewan</li>
+            </ul>
+            <p>Untuk informasi lebih lanjut, kunjungi <a href="https://rshp.unair.ac.id" target="_blank">website resmi RSHP</a>.</p>
+        </section>
+        <hr>
+        <section id="visi">
+            <h2>Visi, Misi, dan Tujuan</h2>
+            <h3>Visi</h3>
+            <p><i>Menjadi rumah sakit hewan pendidikan unggulan di tingkat nasional dan internasional.</i></p>
+            <h3>Misi</h3>
+            <ol>
+                <li>Menyelenggarakan pelayanan kesehatan hewan yang profesional dan beretika.</li>
+                <li>Mendukung pendidikan dan penelitian di bidang kedokteran hewan.</li>
+                <li>Meningkatkan kesejahteraan hewan dan masyarakat.</li>
+            </ol>
+            <h3>Tujuan</h3>
+            <ul>
+                <li>Menyediakan layanan kesehatan hewan yang berkualitas.</li>
+                <li>Menjadi pusat pendidikan dan pelatihan kedokteran hewan.</li>
+                <li>Mendukung pengembangan ilmu pengetahuan dan teknologi veteriner.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

@@ -73,15 +73,20 @@
 		max-width: 600px;
 		padding: 0 0 0 18px;
 	}
+	
+	.navbar .login {
+		margin-left: auto;
+	}
 	</style>
 </head>
 <body>
 	<nav class="navbar">
 		<ul>
-			<li><a href="home.html">Home</a></li>
-			<li><a href="struktur.html">Struktur Organisasi</a></li>
-			<li><a href="layanan.html">Layanan Umum</a></li>
-			<li><a href="visi.html">Visi Misi dan Tujuan</a></li>
+			<li><a href="home.php">Home</a></li>
+			<li><a href="struktur.php">Struktur Organisasi</a></li>
+			<li><a href="layanan.php">Layanan Umum</a></li>
+			<li><a href="visi.php">Visi Misi dan Tujuan</a></li>
+			<li class="login"><a href="login.php">Login</a></li>
 		</ul>
 	</nav>
 	<div class="container">

@@ -64,4 +64,5 @@ if (isset($_POST['register'])) {
         <div class="login-link">Sudah punya akun? <a href="login.php">Login</a></div>
     </div>
 </body>
+<?php include('footer.php'); ?>
 </html>

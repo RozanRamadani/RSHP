@@ -75,14 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $iduser > 0) {
         }
         select:focus, button:focus { outline: 2px solid #36a2c2; }
         button {
-            background: #36a2c2;
+            background: #43c463;
             color: #fff;
             font-weight: bold;
             border: none;
             cursor: pointer;
             transition: background 0.2s;
         }
-        button:hover { background: #2587a3; }
+        button:hover { background: #219a3a; }
         .msg {
             text-align: center;
             margin-bottom: 18px;
@@ -133,4 +133,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $iduser > 0) {
         <a class="back-link" href="datamaster_role_user.php">&larr; Kembali ke Manajemen Role</a>
     </div>
 </body>
+<?php include('footer.php'); ?>
 </html>

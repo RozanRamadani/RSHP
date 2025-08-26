@@ -88,4 +88,5 @@ if ($iduser > 0) {
         <a class="back-link" href="data_user.php">&larr; Kembali ke Data User</a>
     </div>
 </body>
+<?php include('footer.php'); ?>
 </html>

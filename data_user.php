@@ -30,11 +30,14 @@ $result = $conn->query($query);
         th { background: #36a2c2; color: #fff; font-size: 1.05em; }
         tr:nth-child(even) { background: #f4f8fb; }
         tr:hover { background: #eaf6fa; }
-        .aksi-link { color: #2587a3; text-decoration: none; font-weight: 500; }
-        .aksi-link:hover { text-decoration: underline; }
+    .aksi-link { text-decoration: none; font-weight: 500; padding: 4px 12px; border-radius: 5px; transition: background 0.18s, color 0.18s; margin-bottom: 3px; display: inline-block; }
+    .edit-link { background: #fffbe6; color: #bfa100; border: 1.5px solid #ffe066; }
+    .edit-link:hover { background: #ffe066; color: #7c6f00; }
+    .reset-link { background: #fff0f0; color: #d32f2f; border: 1.5px solid #f44336; }
+    .reset-link:hover { background: #f44336; color: #fff; }
         .tambah-btn {
             display: inline-block;
-            background: #36a2c2;
+            background: #43c463;
             color: #fff;
             font-weight: bold;
             border: none;
@@ -47,7 +50,19 @@ $result = $conn->query($query);
             transition: background 0.2s;
             text-decoration: none;
         }
-        .tambah-btn:hover { background: #2587a3; color: #fff; }
+            .tambah-btn:hover { background: #2587a3; color: #fff; }
+            .back-btn {
+                background: #fff;
+                color: #2587a3;
+                border: 1.5px solid #2587a3;
+                margin-top: 22px;
+                transition: background 0.2s, color 0.2s;
+            }
+            .back-btn:hover {
+                background: #2587a3;
+                color: #fff;
+                text-decoration: none;
+            }
     </style>
 </head>
 <body>
@@ -74,14 +89,15 @@ $result = $conn->query($query);
                     <td><?php echo $row['nama']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td>
-                        <a class="aksi-link" href="edit_user.php?id=<?php echo $row['iduser']; ?>">Edit</a><br>
-                        <a class="aksi-link" href="reset_password.php?id=<?php echo $row['iduser']; ?>">Reset Password</a>
+                        <a class="aksi-link edit-link" href="edit_user.php?id=<?php echo $row['iduser']; ?>">Edit</a><br>
+                        <a class="aksi-link reset-link" href="reset_password.php?id=<?php echo $row['iduser']; ?>">Reset Password</a>
                     </td>
                 </tr>
             <?php } ?>
             </tbody>
         </table>
-        <a href="data_master.php" class="tambah-btn" style="background:#fff;color:#2587a3;border:1.5px solid #2587a3;margin-top:22px;">&larr; Kembali ke Data Master</a>
+        <a href="data_master.php" class="tambah-btn back-btn">&larr; Kembali ke Data Master</a>
     </div>
 </body>
+<?php include('footer.php'); ?>
 </html>

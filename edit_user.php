@@ -86,4 +86,5 @@ if ($iduser > 0) {
         </form>
     </div>
 </body>
+<?php include('footer.php'); ?>
 </html>

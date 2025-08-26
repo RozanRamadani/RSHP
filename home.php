@@ -7,6 +7,7 @@
 <body>
     
 </body>
+<?php include('footer.php'); ?>
 </html>
 <!DOCTYPE html>
 <html lang="en">

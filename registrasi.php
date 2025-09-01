@@ -1,68 +1,230 @@
 <?php
-include 'koneksi.php';
-$msg = '';
-if (isset($_POST['register'])) {
-    $nama = mysqli_real_escape_string($conn, $_POST['nama']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    // Validasi
-    if ($password !== $password2) {
-        $msg = 'Password tidak sama!';
-    } else {
-        $cek = $conn->query("SELECT * FROM user WHERE email='$email'");
-        if ($cek->num_rows > 0) {
-            $msg = 'Email sudah terdaftar!';
-        } else {
-            $hash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO user (nama, email, password) VALUES ('$nama', '$email', '$hash')";
-            if ($conn->query($sql)) {
-                $msg = 'Registrasi berhasil! Silakan login.';
+require_once 'koneksi.php';
+
+class RegistrasiController
+{
+    private $db;
+    public $msg = '';
+    public function __construct()
+    {
+        $this->db = new Database();
+        if (isset($_POST['register'])) {
+            $nama = htmlspecialchars(strip_tags(trim($_POST['nama'])));
+            $email = htmlspecialchars(strip_tags(trim($_POST['email'])));
+            $password = $_POST['password'];
+            $password2 = $_POST['password2'];
+            if ($password !== $password2) {
+                $this->msg = 'Password tidak sama!';
             } else {
-                $msg = 'Registrasi gagal!';
+                $cek = $this->db->select("SELECT * FROM user WHERE email=?", [$email], 's');
+                if ($cek && count($cek) > 0) {
+                    $this->msg = 'Email sudah terdaftar!';
+                } else {
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $sql = "INSERT INTO user (nama, email, password) VALUES (?, ?, ?)";
+                    try {
+                        $affected = $this->db->execute($sql, [$nama, $email, $hash], 'sss');
+                        if ($affected > 0) {
+                            $this->msg = 'Registrasi berhasil! Silakan login.';
+                        } else {
+                            $this->msg = 'Registrasi gagal!';
+                        }
+                    } catch (Exception $e) {
+                        $this->msg = 'Registrasi gagal!';
+                    }
+                }
             }
         }
     }
 }
+
+class RegistrasiView
+{
+    private $controller;
+    public function __construct($controller)
+    {
+        $this->controller = $controller;
+    }
+    public function render()
+    {
+        ob_start();
+        $msg = $this->controller->msg;
 ?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi</title>
-    <style>
-        body { background: #f4f8fb; font-family: 'Segoe UI', Arial, sans-serif; min-height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
-        .form-box { background: #fff; max-width: 370px; width: 100%; margin: 40px auto 0 auto; padding: 32px 28px 24px 28px; border-radius: 10px; box-shadow: 0 4px 16px rgba(54,162,194,0.10); }
-        h2 { color: #2587a3; text-align: center; margin-bottom: 24px; }
-        label { font-weight: 500; color: #333; display: block; margin-bottom: 6px; margin-top: 14px; }
-        input[type="text"], input[type="email"], input[type="password"] { width: 100%; padding: 10px 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #b5d6e0; font-size: 1em; background: #f8fafc; }
-        input:focus { outline: 2px solid #36a2c2; }
-        button[type="submit"] { width: 100%; background: #36a2c2; color: #fff; font-weight: bold; border: none; border-radius: 5px; padding: 10px 0; font-size: 1em; cursor: pointer; margin-top: 12px; transition: background 0.2s; }
-        button[type="submit"]:hover { background: #2587a3; }
-        .msg { color: #e74c3c; text-align: center; margin: 10px 0 0 0; font-weight: 500; }
-        .login-link { text-align: center; margin-top: 18px; color: #2587a3; }
-        .login-link a { color: #2587a3; text-decoration: underline; }
-        .login-link a:hover { color: #36a2c2; }
-    </style>
-</head>
-<body>
-    <div class="form-box">
-        <h2>Registrasi</h2>
-        <form method="post">
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <label for="password2">Ulangi Password:</label>
-            <input type="password" id="password2" name="password2" required>
-            <button type="submit" name="register">Registrasi</button>
-        </form>
-        <?php if($msg) echo '<div class="msg">'.$msg.'</div>'; ?>
-        <div class="login-link">Sudah punya akun? <a href="login.php">Login</a></div>
-    </div>
-</body>
-<?php include('footer.php'); ?>
-</html>
+        <!DOCTYPE html>
+        <html lang="id">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Registrasi</title>
+            <style>
+                body {
+                    background: linear-gradient(120deg, #2193b0 0%, #6dd5ed 100%);
+                    font-family: 'Montserrat', Arial, sans-serif;
+                    min-height: 100vh;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .register-panel {
+                    background: #fff;
+                    max-width: 400px;
+                    width: 100%;
+                    margin: 72px auto 72px auto;
+                    padding: 36px 32px 28px 32px;
+                    border-radius: 18px;
+                    box-shadow: 0 8px 32px rgba(33, 147, 176, 0.13);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .register-panel::before {
+                    content: '';
+                    position: absolute;
+                    top: -60px;
+                    right: -60px;
+                    width: 120px;
+                    height: 120px;
+                    background: #2193b033;
+                    border-radius: 50%;
+                    z-index: 0;
+                }
+
+                .register-title {
+                    color: #2193b0;
+                    text-align: center;
+                    margin-bottom: 28px;
+                    font-size: 2em;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                }
+
+                .register-panel label {
+                    font-weight: 600;
+                    color: #235;
+                    display: block;
+                    margin-bottom: 7px;
+                    margin-top: 18px;
+                    letter-spacing: 0.5px;
+                }
+
+                .register-panel input[type="text"],
+                .register-panel input[type="email"],
+                .register-panel input[type="password"] {
+                    width: 100%;
+                    padding: 12px 10px;
+                    margin-bottom: 12px;
+                    border-radius: 7px;
+                    border: 1.5px solid #2193b0;
+                    font-size: 1em;
+                    background: #f0f8ff;
+                    transition: border 0.2s;
+                }
+
+                .register-panel input[type="text"]:focus,
+                .register-panel input[type="email"]:focus,
+                .register-panel input[type="password"]:focus {
+                    outline: none;
+                    border: 1.5px solid #176cae;
+                }
+
+                .register-panel button[type="submit"] {
+                    width: 100%;
+                    background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+                    color: #fff;
+                    font-weight: bold;
+                    border: none;
+                    border-radius: 7px;
+                    padding: 12px 0;
+                    font-size: 1.1em;
+                    cursor: pointer;
+                    margin-top: 18px;
+                    box-shadow: 0 2px 8px rgba(33, 147, 176, 0.08);
+                    transition: background 0.2s;
+                }
+
+                .register-panel button[type="submit"]:hover {
+                    background: linear-gradient(90deg, #176cae 0%, #2193b0 100%);
+                }
+
+                .msg {
+                    color: #176cae;
+                    text-align: center;
+                    margin: 12px 0 0 0;
+                    font-weight: 600;
+                    background: #e3f2fd;
+                    border: 1px solid #90caf9;
+                    border-radius: 6px;
+                    padding: 10px 0;
+                }
+
+                .login-link {
+                    text-align: center;
+                    margin-top: 22px;
+                    color: #2193b0;
+                    font-size: 0.98em;
+                }
+
+                .login-link a {
+                    color: #176cae;
+                    text-decoration: underline;
+                    font-weight: 600;
+                }
+
+                .login-link a:hover {
+                    color: #6dd5ed;
+                }
+
+                .footer-sticky {
+                    position: fixed;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background: transparent;
+                    z-index: 10;
+                    margin: 0;
+                    padding: 12px 0 8px 0;
+                    text-align: center;
+                    color: #888;
+                    font-size: 0.98em;
+                    box-shadow: none;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="register-panel">
+                <div style="text-align:center; margin-bottom:18px;">
+                    <img src="img/RSHP.png" alt="RSHP Logo" style="height:64px; width:auto; margin-bottom:8px;">
+                </div>
+                <div class="register-title">Registrasi</div>
+                <form method="post">
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" name="nama" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <label for="password2">Ulangi Password</label>
+                    <input type="password" id="password2" name="password2" required>
+                    <button type="submit" name="register">Registrasi</button>
+                </form>
+                <?php if ($msg) echo '<div class="msg">' . $msg . '</div>'; ?>
+                <div class="login-link">Sudah punya akun? <a href="login.php">Login</a></div>
+            </div>
+            <footer class="footer-sticky">
+                &copy; <?php echo date('Y'); ?> RSHP - Rumah Sakit Hewan Pendidikan Universitas Airlangga
+            </footer>
+        </body>
+
+        </html>
+<?php
+        return ob_get_clean();
+    }
+}
+
+$controller = new RegistrasiController();
+$view = new RegistrasiView($controller);
+echo $view->render();

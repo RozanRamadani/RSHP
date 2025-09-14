@@ -1,0 +1,55 @@
+<?php 
+if (session_status() === PHP_SESSION_NONE) session_start();
+$role = $_SESSION['user']['role_aktif'] ?? null;
+?>
+<nav style="background:#36a2c2;padding:0;box-shadow:0 2px 4px rgba(0,0,0,0.04);">
+    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <div class="navbar-rshp">
+        <div style="display:flex; align-items:center; gap:18px;">
+            <img src="../../assets/img/uner.png" alt="Logo UNER" class="navbar-logo" />
+            <ul style="margin:0; padding:0;">
+                <?php if ($role == 1): // ADMIN ?>
+                    <li>
+                        <a href="/roles/admin/dashboard.php">Dashboard</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Data Master &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="/roles/admin/data_user.php">Data User</a>
+                            <a href="/roles/admin/datamaster_role_user.php">Manajemen Role</a>
+                            <a href="/roles/animal/JenisHewanView.php">Jenis Hewan</a>
+                            <a href="/roles/animal/RasHewanView.php">Ras Hewan</a>
+                        </div>
+                    </li>
+                <?php elseif ($role == 2): // DOKTER ?>
+                    <li>
+                        <a href="/roles/medis/dashboard_dokter.php">Dashboard</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Data Pasien &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="/roles/animal/JenisHewanView.php">Jenis Hewan</a>
+                            <a href="/roles/animal/RasHewanView.php">Ras Hewan</a>
+                        </div>
+                    </li>
+                <?php elseif ($role == 3): // PERAWAT ?>
+                    <li>
+                        <a href="/roles/medis/dashboard_perawat.php">Dashboard</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Data Medis &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="/roles/animal/JenisHewanView.php">Jenis Hewan</a>
+                            <a href="/roles/animal/RasHewanView.php">Ras Hewan</a>
+                        </div>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <ul>
+            <li>
+                <a href="/views/auth/logout.php" class="logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

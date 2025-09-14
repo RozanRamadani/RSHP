@@ -1,0 +1,123 @@
+ body {
+     background: #f4f8fb;
+     font-family: 'Segoe UI', Arial, sans-serif;
+ }
+
+ .tambah-jenis-container {
+     max-width: 420px;
+     margin: 48px auto 0 auto;
+     background: #fff;
+     padding: 36px 32px 28px 32px;
+     border-radius: 14px;
+     box-shadow: 0 6px 24px rgba(54, 162, 194, 0.13);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .tambah-jenis-container h2 {
+     color: #2587a3;
+     font-size: 1.5em;
+     margin-bottom: 18px;
+     font-weight: 700;
+     letter-spacing: 0.5px;
+ }
+
+ .tambah-jenis-container form {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 14px;
+     margin-bottom: 10px;
+ }
+
+ .tambah-jenis-container label {
+     font-weight: 600;
+     color: #2587a3;
+     margin-bottom: 4px;
+     font-size: 1.08em;
+ }
+
+ .tambah-jenis-container input[type="text"] {
+     padding: 10px 12px;
+     border: 1.5px solid #b5d6e0;
+     border-radius: 6px;
+     font-size: 1.08em;
+     background: #f8fcff;
+     transition: border 0.18s;
+     outline: none;
+ }
+
+ .tambah-jenis-container input[type="text"]:focus {
+     border-color: #36a2c2;
+     background: #f0faff;
+ }
+
+ .tambah-jenis-container .tambah-jenis-btn {
+     background: linear-gradient(90deg, #36a2c2 60%, #2587a3 100%);
+     color: #fff;
+     padding: 10px 0;
+     border: none;
+     border-radius: 6px;
+     font-size: 1.08em;
+     font-weight: 700;
+     cursor: pointer;
+     box-shadow: 0 2px 8px rgba(54, 162, 194, 0.08);
+     transition: background 0.2s, box-shadow 0.2s;
+ }
+
+ .tambah-jenis-container .tambah-jenis-btn:hover {
+     background: linear-gradient(90deg, #2587a3 60%, #36a2c2 100%);
+     box-shadow: 0 4px 16px rgba(54, 162, 194, 0.13);
+ }
+
+ .tambah-jenis-container .msg-success {
+     background: #e6f9f0;
+     color: #258a5a;
+     border: 1.5px solid #b2e2c7;
+     padding: 10px 14px;
+     border-radius: 6px;
+     margin-bottom: 10px;
+     font-size: 1em;
+     text-align: center;
+ }
+
+ .tambah-jenis-container .msg-error {
+     background: #fff0f0;
+     color: #d32f2f;
+     border: 1.5px solid #f44336;
+     padding: 10px 14px;
+     border-radius: 6px;
+     margin-bottom: 10px;
+     font-size: 1em;
+     text-align: center;
+ }
+
+ .tambah-jenis-container a {
+     color: #36a2c2;
+     text-decoration: none;
+     font-weight: 500;
+     margin-top: 8px;
+     transition: color 0.18s;
+ }
+
+ .tambah-jenis-container a:hover {
+     color: #2587a3;
+     text-decoration: underline;
+ }
+
+ @media (max-width: 600px) {
+     .tambah-jenis-container {
+         padding: 12px 2px;
+     }
+
+     .tambah-jenis-container h2 {
+         font-size: 1.15em;
+     }
+
+     .tambah-jenis-container label,
+     .tambah-jenis-container input[type="text"],
+     .tambah-jenis-container .tambah-jenis-btn {
+         font-size: 0.98em;
+     }
+ }

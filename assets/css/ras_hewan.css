@@ -1,0 +1,155 @@
+
+.bulk-action-bar {
+    border: none;
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.bulk-delete-btn:hover {
+    background: #b71c1c;
+    box-shadow: 0 4px 16px rgba(183, 28, 28, 0.13);
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #36a2c2;
+    cursor: pointer;
+}
+
+.msg-success {
+    background: #e0f7fa;
+    color: #00796b;
+    border: 2px solid #4dd0e1;
+    padding: 13px 18px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.08em;
+    box-shadow: 0 2px 8px rgba(54, 162, 194, 0.08);
+    letter-spacing: 0.5px;
+}
+body {
+    background: #f4f8fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.ras-table-container {
+    background: #fff;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding: 32px 28px 24px 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+}
+
+h2 {
+    color: #2587a3;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.ras-table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+
+.ras-table th,
+.ras-table td {
+    border: 1px solid #b5d6e0;
+    padding: 10px 8px;
+    text-align: center;
+}
+
+.ras-table th {
+    background: #36a2c2;
+    color: #fff;
+    font-size: 1.05em;
+}
+
+.ras-table tr:nth-child(even) {
+    background: #f4f8fb;
+}
+
+.ras-table tr:hover {
+    background: #eaf6fa;
+}
+
+.aksi-link {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 5px;
+    transition: background 0.18s, color 0.18s;
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.edit-link {
+    background: #fffbe6;
+    color: #bfa100;
+    border: 1.5px solid #ffe066;
+}
+
+.edit-link:hover {
+    background: #ffe066;
+    color: #7c6f00;
+}
+
+.delete-link {
+    background: #fff0f0;
+    color: #d32f2f;
+    border: 1.5px solid #f44336;
+}
+
+.delete-link:hover {
+    background: #f44336;
+    color: #fff;
+}
+
+.tambah-ras-btn {
+    display: inline-block;
+    background: #36a2c2;
+    color: #fff;
+    padding: 10px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 22px;
+    font-size: 1.08em;
+    box-shadow: 0 2px 8px rgba(54, 162, 194, 0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    border: none;
+}
+
+.tambah-ras-btn:hover {
+    background: #0288d1;
+    box-shadow: 0 4px 16px rgba(2, 136, 209, 0.13);
+}
+
+
+.ras-table td > div {
+    margin-bottom: 7px;
+    padding-bottom: 3px;
+    border-bottom: 1px dashed #b2ebf2;
+}
+
+.ras-table td > div:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 700px) {
+    .ras-table-container {
+        padding: 10px 2px;
+    }
+    .ras-table th, .ras-table td {
+        padding: 9px 4px;
+        font-size: 0.98em;
+    }
+    .tambah-ras-btn {
+        padding: 8px 12px;
+        font-size: 0.98em;
+    }
+}

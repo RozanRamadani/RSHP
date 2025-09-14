@@ -1,0 +1,53 @@
+
+.bulk-action-bar {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 24px;
+	margin-top: 8px;
+}
+
+.bulk-action-bar .tambah-ras-btn {
+	margin-bottom: 0;
+	margin-right: 0;
+}
+
+.bulk-delete-btn {
+	background: #d32f2f;
+	color: #fff;
+	padding: 10px 22px;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 1.08em;
+	border: none;
+	box-shadow: 0 2px 8px rgba(211, 47, 47, 0.10);
+	transition: background 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+	margin-bottom: 0;
+}
+.bulk-delete-btn:hover {
+	background: #b71c1c;
+	box-shadow: 0 4px 16px rgba(183, 28, 28, 0.13);
+}
+
+input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	accent-color: #36a2c2;
+	cursor: pointer;
+}
+
+.msg-success {
+	background: #e0f7fa;
+	color: #00796b;
+	border: 2px solid #4dd0e1;
+	padding: 13px 18px;
+	border-radius: 7px;
+	margin-bottom: 18px;
+	margin-top: 8px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 1.08em;
+	box-shadow: 0 2px 8px rgba(54, 162, 194, 0.08);
+	letter-spacing: 0.5px;
+}

@@ -1,0 +1,135 @@
+/* Pesan sukses dan error */
+.msg-success {
+    background: #e6f9f0;
+    color: #258a5a;
+    border: 1.5px solid #b2e2c7;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 1em;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(54, 162, 194, 0.06);
+}
+.msg-error {
+    background: #fff0f0;
+    color: #d32f2f;
+    border: 1.5px solid #f44336;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 1em;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.06);
+}
+body {
+    background: #f4f8fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.jenis-table-container {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    padding: 32px 28px 24px 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+}
+
+.jenis-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.jenis-table th,
+.jenis-table td {
+    border: 1px solid #b5d6e0;
+    padding: 12px 10px;
+    text-align: left;
+}
+
+.jenis-table th {
+    background: #36a2c2;
+    color: #fff;
+    font-weight: 700;
+}
+
+.jenis-table tr:nth-child(even) {
+    background: #f4f8fb;
+}
+
+.jenis-table tr:hover {
+    background: #e6f6fa;
+}
+
+
+.jenis-table .aksi-link {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 5px;
+    transition: background 0.18s, color 0.18s;
+    margin-bottom: 3px;
+    margin-right: 8px;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.jenis-table .edit-link {
+    background: #fffbe6;
+    color: #bfa100;
+    border: 1.5px solid #ffe066;
+}
+
+.jenis-table .edit-link:hover {
+    background: #ffe066;
+    color: #7c6f00;
+}
+
+.jenis-table .delete-link {
+    background: #fff0f0;
+    color: #d32f2f;
+    border: 1.5px solid #f44336;
+}
+
+.jenis-table .delete-link:hover {
+    background: #f44336;
+    color: #fff;
+}
+
+.tambah-jenis-btn {
+    display: inline-block;
+    background: #36a2c2;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+}
+
+.tambah-jenis-btn:hover {
+    background: #2587a3;
+}
+
+@media (max-width: 600px) {
+    .jenis-table-container {
+        padding: 12px 2px;
+    }
+
+    .jenis-table th,
+    .jenis-table td {
+        padding: 8px 4px;
+        font-size: 0.98em;
+    }
+
+    .tambah-jenis-btn {
+        padding: 7px 10px;
+        font-size: 0.98em;
+    }
+}

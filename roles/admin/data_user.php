@@ -1,18 +1,16 @@
 
 <?php
+
 session_start();
-require_once __DIR__ . '/../../databases/koneksi.php';
+require_once __DIR__ . '/../../controllers/DataUserController.php';
 if (!isset($_SESSION['user']) || $_SESSION['user']['role_aktif'] != '1') {
     header("Location: /views/auth/login.php");
     exit();
 }
 
+
 class DataUserView {
-    private $controller;
-    public function __construct($controller) {
-        $this->controller = $controller;
-    }
-    public function render() {
+    public function render($users) {
         ob_start();
         ?>
         <html lang="id">
@@ -37,7 +35,7 @@ class DataUserView {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->controller->users as $row): ?>
+                        <?php foreach ($users as $row): ?>
                             <tr>
                                 <td><?php echo $row['iduser']; ?></td>
                                 <td><?php echo $row['nama']; ?></td>
@@ -60,7 +58,6 @@ class DataUserView {
     }
 }
 
-require_once __DIR__ . '/../../controllers/DataUserController.php';
 $controller = new DataUserController();
-$view = new DataUserView($controller);
-echo $view->render();
+$view = new DataUserView();
+echo $view->render($controller->users);

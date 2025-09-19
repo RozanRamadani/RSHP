@@ -1,11 +1,10 @@
 <?php
+require_once __DIR__ . '/../models/User.php';
 class DataUserController
 {
-    private $db;
     public $users;
     public function __construct()
     {
-        $this->db = new Database();
-        $this->users = $this->db->select("SELECT * FROM user");
+        $this->users = User::getAllUsers();
     }
 }

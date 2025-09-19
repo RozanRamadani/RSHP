@@ -1,12 +1,14 @@
 <?php 
 if (session_status() === PHP_SESSION_NONE) session_start();
 $role = $_SESSION['user']['role_aktif'] ?? null;
+// Cek apakah file ini dipanggil dari subfolder (ada 'roles' di path)
+$base = (strpos($_SERVER['SCRIPT_NAME'], '/roles/') !== false) ? '../../../' : '../';
 ?>
 <nav style="background:#36a2c2;padding:0;box-shadow:0 2px 4px rgba(0,0,0,0.04);">
-    <link rel="stylesheet" href="../../assets/css/menu.css">
+    <link rel="stylesheet" href="<?php echo $base; ?>assets/css/menu.css">
     <div class="navbar-rshp">
         <div style="display:flex; align-items:center; gap:18px;">
-            <img src="../../assets/img/uner.png" alt="Logo UNER" class="navbar-logo" />
+            <img src="<?php echo $base; ?>assets/img/uner.png" alt="Logo UNER" class="navbar-logo" />
             <ul style="margin:0; padding:0;">
                 <?php if ($role == 1): // ADMIN ?>
                     <li>
@@ -19,6 +21,11 @@ $role = $_SESSION['user']['role_aktif'] ?? null;
                             <a href="/roles/admin/datamaster_role_user.php">Manajemen Role</a>
                             <a href="/roles/animal/JenisHewanView.php">Jenis Hewan</a>
                             <a href="/roles/animal/RasHewanView.php">Ras Hewan</a>
+                            <a href="/roles/medis/pemeriksaan/PemilikView.php">Data Pemilik</a>
+                            <a href="/roles/medis/pemeriksaan/PetView.php">Data Pet</a>
+                            <a href="/roles/medis/kategori/KategoriView.php">Data Kategori</a>
+                            <a href="/roles/medis/kategori/KategoriKlinisView.php">Data Kategori Klinis</a>
+                            <a href="/roles/medis/kategori/KodeTindakanTerapiView.php">Data Kode Tindakan Terapi</a>
                         </div>
                     </li>
                 <?php elseif ($role == 2): // DOKTER ?>

@@ -133,6 +133,8 @@ class AuthController
 			return '/roles/medis/dashboard_dokter.php';
 		} elseif ($role == 3) {
 			return '/roles/medis/dashboard_perawat.php';
+		} elseif ($role == 4) {
+			return '/roles/resepsionis/dashboard_resepsionis.php';
 		} else {
 			return '/roles/admin/dashboard.php';
 		}

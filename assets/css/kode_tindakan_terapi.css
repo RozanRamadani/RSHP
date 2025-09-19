@@ -1,0 +1,100 @@
+.aksi-btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+body {
+    background: #f4f8fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.kode-tindakan-container {
+    background: #fff;
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    padding: 32px 28px 24px 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+}
+.kode-tindakan-container h2 {
+    color: #2587a3;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+.tambah-tindakan-btn {
+    display: inline-block;
+    background: #43c463;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: background 0.2s;
+}
+.tambah-tindakan-btn:hover {
+    background: #369e4f;
+}
+.tindakan-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 8px;
+}
+.tindakan-table th,
+.tindakan-table td {
+    border: 1px solid #b5d6e0;
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 1em;
+}
+.tindakan-table th {
+    background: #36a2c2;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+}
+.tindakan-table tr:nth-child(even) {
+    background: #f4f8fb;
+}
+.tindakan-table tr:hover {
+    background: #e6f6fa;
+}
+.edit-btn {
+    display: inline-block;
+    background: #fffbe6;
+    color: #c9a100;
+    border: 2px solid #ffe066;
+    padding: 6px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    margin-right: 8px;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    box-sizing: border-box;
+}
+.edit-btn:hover {
+    background: #fff3bf;
+    color: #b38f00;
+    border-color: #ffd700;
+}
+.delete-btn {
+    display: inline-block;
+    background: #fff;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+    padding: 6px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    box-sizing: border-box;
+}
+.delete-btn:hover {
+    background: #fff0f0;
+    color: #b71c1c;
+    border-color: #b71c1c;
+}

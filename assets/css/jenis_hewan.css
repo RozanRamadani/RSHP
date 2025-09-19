@@ -1,3 +1,10 @@
+
+h2 {
+    color: #2587a3;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
 /* Pesan sukses dan error */
 .msg-success {
     background: #e6f9f0;

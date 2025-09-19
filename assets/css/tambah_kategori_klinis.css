@@ -1,0 +1,109 @@
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: #f7f7f7;
+	margin: 0;
+	padding: 0;
+}
+
+.tambah-klinis-container, .edit-klinis-container, .delete-klinis-container {
+	background: #fff;
+	max-width: 400px;
+	margin: 40px auto;
+	padding: 32px 28px 24px 28px;
+	border-radius: 12px;
+	box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.tambah-klinis-container h2,
+.edit-klinis-container h2,
+.delete-klinis-container h2 {
+	text-align: center;
+	color: #43c463;
+	margin-bottom: 24px;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+label {
+	font-size: 1rem;
+	color: #333;
+	margin-bottom: 6px;
+}
+
+input[type="text"] {
+	padding: 10px 12px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+input[type="text"]:focus {
+	border-color: #43c463;
+	outline: none;
+}
+
+.simpan-btn {
+	background: #43c463;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 0;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.2s;
+	margin-bottom: 4px;
+}
+.simpan-btn:hover {
+	background: #36a653;
+}
+
+.batal-btn {
+	background: #e0e0e0;
+	color: #333;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 0;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.batal-btn:hover {
+	background: #bdbdbd;
+}
+
+.hapus-btn {
+	background: #e53935;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 10px 0;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.2s;
+	margin-right: 8px;
+}
+.hapus-btn:hover {
+	background: #b71c1c;
+}
+
+.message {
+	background: #e8f5e9;
+	color: #43c463;
+	border: 1px solid #43c463;
+	border-radius: 6px;
+	padding: 10px;
+	margin-bottom: 16px;
+	text-align: center;
+	font-size: 1rem;
+}

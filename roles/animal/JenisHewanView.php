@@ -32,6 +32,7 @@ class JenisHewanView
         <body>
             <?php include('../../views/partials/menu.php'); ?>
             <div class="jenis-table-container">
+                <h2>Jenis Hewan</h2>
                 <?php 
                 if (isset($_SESSION['flash_msg'])) {
                     $msg = $_SESSION['flash_msg'];

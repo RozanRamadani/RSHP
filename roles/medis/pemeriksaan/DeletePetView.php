@@ -1,22 +1,29 @@
 <?php
 require_once __DIR__ . '/../../../controllers/PetController.php';
 
+// Dapatkan ID pet dari parameter GET
 $idpet = isset($_GET['idpet']) ? $_GET['idpet'] : null;
+
+// Inisialisasi controller
 $petController = new PetController();
 
+// Validasi ID pet
 if (!$idpet) {
 	echo '<script>alert("ID Pet tidak ditemukan");window.location="PetView.php";</script>';
 	exit;
 }
 
+// Ambil data pet berdasarkan ID
 $pet = $petController->getById($idpet);
 if (!$pet) {
 	echo '<script>alert("Data Pet tidak ditemukan");window.location="PetView.php";</script>';
 	exit;
 }
 
-
+// Pesan untuk menampilkan status operasi
 $msg = '';
+
+// Proses penghapusan data pet jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$result = $petController->delete($idpet);
 	if ($result) {

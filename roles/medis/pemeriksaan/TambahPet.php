@@ -38,7 +38,7 @@ class TambahPetView {
         <body>
             <?php include('../../../views/partials/menu.php'); ?>
             <div class="tambah-pet-container">
-                <h2>Tambah Data Pet</h2>
+                <h2>Registrasi Pet</h2>
                 <?php echo $msg; ?>
                 <form method="post">
                     <label for="nama">Nama Pet:</label>
@@ -71,8 +71,8 @@ class TambahPetView {
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <button type="submit" name="tambah">Tambah Pet</button>
                     <a href="PetView.php" class="back-link">Kembali</a>
+                    <button type="submit" name="tambah">Tambah Pet</button>
                 </form>
             </div>
             <?php include('../../../views/partials/footer.php'); ?>

@@ -108,6 +108,30 @@ tr:hover {
     color: #fff !important;
 }
 
+.edit-role-btn {
+    background: #ffeb3b !important;
+    color: #333 !important;
+    border: none !important;
+    margin-left: 8px !important;
+}
+
+.edit-role-btn:hover {
+    background: #fdd835 !important;
+    color: #333 !important;
+}
+
+.hapus-role-btn {
+    background: #f44336 !important;
+    color: #fff !important;
+    border: none !important;
+    margin-left: 8px !important;
+}
+
+.hapus-role-btn:hover {
+    background: #d32f2f !important;
+    color: #fff !important;
+}
+
 .back-link {
     display: inline-block;
     background: #fff;

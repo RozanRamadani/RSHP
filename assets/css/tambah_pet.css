@@ -124,7 +124,26 @@ body {
     resize: vertical;
 }
 
-.tambah-pet-container button,
+.tambah-pet-container button {
+    display: inline-block;
+    background: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 22px;
+    margin-right: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.tambah-pet-container button:hover {
+    background: #45a049;
+    color: #fff;
+}
+
 .tambah-pet-container .back-link {
     display: inline-block;
     background: #36a2c2;
@@ -140,7 +159,6 @@ body {
     text-decoration: none;
 }
 
-.tambah-pet-container button:hover,
 .tambah-pet-container .back-link:hover {
     background: #2587a3;
     color: #fff;

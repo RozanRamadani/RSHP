@@ -4,9 +4,17 @@
     public $user;
     public $msg = '';
     private $iduser;
+
+    // Konstruktor - method inisialisasi objek
     public function __construct() {
+
+        // Inisialisasi objek Database
         $this->db = new Database();
+
+        // Ambil iduser dari parameter GET
         $this->iduser = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+        // Jika iduser valid, proses update data user
         if ($this->iduser > 0) {
             if (isset($_POST['update'])) {
                 $nama = htmlspecialchars(strip_tags(trim($_POST['nama'])));

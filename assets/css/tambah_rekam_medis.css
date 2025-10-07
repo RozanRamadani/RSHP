@@ -1,0 +1,210 @@
+.tambah-rekammedis-form select {
+	width: 100%;
+	padding: 12px;
+	border-radius: 8px;
+	border: 1.5px solid #b5d6e0;
+	margin-bottom: 18px;
+	font-size: 1.08em;
+	background: #f7faff;
+	transition: border 0.2s;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.tambah-rekammedis-form select:focus {
+	outline: none;
+	border: 2px solid #36a2c2;
+}
+body {
+	background: #f4f8fb;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.tambah-rekammedis-card {
+	max-width: 400px;
+	margin: 48px auto 0 auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+	padding: 36px 32px 28px 32px;
+	text-align: center;
+}
+.tambah-rekammedis-title {
+	color: #2587a3;
+	text-align: center;
+	margin-bottom: 28px;
+	font-size: 2em;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+.tambah-rekammedis-form label {
+	font-weight: 600;
+	color: #1976d2;
+	margin-bottom: 8px;
+	display: block;
+	text-align: left;
+}
+.tambah-rekammedis-form input {
+	width: 100%;
+	padding: 12px;
+	border-radius: 8px;
+	border: 1.5px solid #b5d6e0;
+	margin-bottom: 18px;
+	font-size: 1.08em;
+	background: #f7faff;
+	transition: border 0.2s;
+}
+.tambah-rekammedis-form input:focus {
+	outline: none;
+	border: 2px solid #36a2c2;
+}
+.btn-tambah-rekammedis {
+	width: 100%;
+	background: #36a2c2;
+	color: #fff;
+	padding: 12px 0;
+	border-radius: 8px;
+	font-size: 1.15em;
+	font-weight: 700;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 12px;
+	transition: background 0.2s;
+	box-shadow: 0 2px 8px rgba(54,162,194,0.10);
+}
+.btn-tambah-rekammedis:hover {
+	background: #2587a3;
+}
+.btn-batal-rekammedis {
+	display: block;
+	width: 100%;
+	background: #fff;
+	color: #2587a3;
+	border: 1.5px solid #2587a3;
+	padding: 10px 0;
+	border-radius: 8px;
+	font-size: 1.08em;
+	font-weight: 600;
+	text-decoration: none;
+	margin-bottom: 8px;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-batal-rekammedis:hover {
+	background: #2587a3;
+	color: #fff;
+}
+body {
+	background: #f4f8fb;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.tambah-rekammedis-container {
+	max-width: 500px;
+	margin: 40px auto 0 auto;
+	background: #fff;
+	padding: 32px 28px 24px 28px;
+	border-radius: 10px;
+	box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+}
+
+.tambah-rekammedis-title {
+	color: #2587a3;
+	text-align: center;
+	margin-bottom: 24px;
+	font-size: 2em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	width: 100%;
+}
+
+.tambah-rekammedis-container form label {
+	font-weight: 600;
+	color: #388e3c;
+	margin-bottom: 6px;
+	display: block;
+}
+.tambah-rekammedis-container form input,
+.tambah-rekammedis-container form select {
+	width: 100%;
+	padding: 12px;
+	border-radius: 7px;
+	border: 1.5px solid #c8e6c9;
+	margin-bottom: 18px;
+	font-size: 1.08em;
+	background: #f7fff7;
+	transition: border 0.2s;
+}
+.tambah-rekammedis-container form input:focus,
+.tambah-rekammedis-container form select:focus {
+	outline: none;
+	border: 2px solid #43a047;
+}
+.tambah-rekammedis-btn {
+	display: inline-block;
+	background: #fff;
+	color: #43a047;
+	border: 1.5px solid #43a047;
+	padding: 10px 22px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1em;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.tambah-rekammedis-btn:hover {
+	background: #43a047;
+	color: #fff;
+}
+.aksi-btn.aksi-delete {
+	background: #fff0f0;
+	color: #d32f2f;
+	border: 1.5px solid #f44336;
+	padding: 8px 18px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1em;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.aksi-btn.aksi-delete:hover {
+	background: #f44336;
+	color: #fff;
+}
+.msg-error {
+	background: #fff0f0;
+	color: #d32f2f;
+	border: 1.5px solid #f44336;
+	padding: 10px 14px;
+	border-radius: 6px;
+	margin-bottom: 16px;
+	font-size: 1em;
+	text-align: center;
+	font-weight: 600;
+	letter-spacing: 0.2px;
+	box-shadow: 0 2px 8px rgba(244, 67, 54, 0.06);
+}
+@media (max-width: 600px) {
+	.tambah-rekammedis-container {
+		padding: 12px 2px;
+	}
+	.tambah-rekammedis-title {
+		font-size: 1.3em;
+	}
+	.tambah-rekammedis-container form input,
+	.tambah-rekammedis-container form select {
+		padding: 7px;
+		font-size: 0.98em;
+	}
+	.tambah-rekammedis-btn,
+	.aksi-btn.aksi-delete {
+		padding: 7px 10px;
+		font-size: 0.98em;
+	}
+}

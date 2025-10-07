@@ -65,6 +65,18 @@ class Database {
 		return $affected;
 	}
 
+	// Method untuk INSERT dan return insert_id
+	public function insertAndGetId($query, $params = [], $types = '') {
+		$stmt = $this->conn->prepare($query);
+		if ($params && $types) {
+			$stmt->bind_param($types, ...$params);
+		}
+		$stmt->execute();
+		$insertId = $this->conn->insert_id;
+		$stmt->close();
+		return $insertId;
+	}
+
 	// Method public untuk menutup koneksi database
 	public function closeConnection() {
       

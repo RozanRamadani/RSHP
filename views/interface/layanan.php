@@ -9,11 +9,12 @@
 <body>
 	<nav class="navbar">
 		<ul>
+			<li><a href="../../roles/pemilik/dashboard_pemilik.php">Dashboard</a></li>
 			<li><a href="home.php">Home</a></li>
 			<li><a href="struktur.php">Struktur Organisasi</a></li>
 			<li><a href="layanan.php">Layanan Umum</a></li>
 			<li><a href="visi.php">Visi Misi dan Tujuan</a></li>
-			<li class="login"><a href="../views/auth/login.php">Login</a></li>
+			<li><a href="../auth/login.php" class="login">Login</a></li>
 		</ul>
 	</nav>
 	<div class="container">
@@ -37,5 +38,5 @@
 		</section>
 	</div>
 </body>
-<?php include('partials/footer.php'); ?>
+<?php include('../partials/footer.php'); ?>
 </html>

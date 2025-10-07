@@ -1,11 +1,12 @@
 <?php
 require_once __DIR__ . '/../../controllers/TemuDokterController.php';
 require_once __DIR__ . '/../../models/Pet.php';
-require_once __DIR__ . '/../../models/User.php';
+require_once __DIR__ . '/../../models/RoleUser.php';
 
 $controller = new TemuDokterController();
 $msg = '';
 
+// Proses pendaftaran temu dokter jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$idpet = $_POST['idpet'];
 	$idrole_user = $_POST['idrole_user'];
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Ambil data pet dan dokter untuk dropdown
 $petList = Pet::getAll();
-$dokterList = User::getAllDokter(); // Pastikan fungsi ini hanya ambil user dokter
+$dokterList = RoleUser::getDokterList(); // Ambil dokter dari tabel role_user, value idrole_user
 
 // Ambil antrian hari ini
 $antrian = $controller->getAntrianHariIni();
@@ -41,7 +42,7 @@ $antrian = $controller->getAntrianHariIni();
 		<select name="idrole_user" required>
 			<option value="">-- Pilih Dokter --</option>
 			<?php foreach ($dokterList as $dokter): ?>
-				<option value="<?= $dokter['iduser'] ?>"><?= $dokter['nama'] ?></option>
+				<option value="<?= $dokter['idrole_user'] ?>"><?= $dokter['nama'] ?></option>
 			<?php endforeach; ?>
 		</select>
 	<button type="submit" class="btn-daftar">Daftar Temu Dokter</button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 15, 2025 at 03:55 AM
+-- Generation Time: Oct 06, 2025 at 12:43 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -33,6 +33,13 @@ CREATE TABLE `detail_rekam_medis` (
   `idkode_tindakan_terapi` int NOT NULL,
   `detail` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_rekam_medis`
+--
+
+INSERT INTO `detail_rekam_medis` (`iddetail_rekam_medis`, `idrekam_medis`, `idkode_tindakan_terapi`, `detail`) VALUES
+(3, 3, 1, 'Rabies');
 
 -- --------------------------------------------------------
 
@@ -180,6 +187,15 @@ CREATE TABLE `pemilik` (
   `iduser` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pemilik`
+--
+
+INSERT INTO `pemilik` (`idpemilik`, `no_wa`, `alamat`, `iduser`) VALUES
+(5, '0865645354347', 'Jl. Durian\r\n', 9),
+(6, '08556263156356', 'Jl. Nangka', 33),
+(7, '0865645354345', 'Jl. Kenanga', 36);
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +211,14 @@ CREATE TABLE `pet` (
   `idpemilik` int NOT NULL,
   `idras_hewan` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pet`
+--
+
+INSERT INTO `pet` (`idpet`, `nama`, `tanggal_lahir`, `warna_tanda`, `jenis_kelamin`, `idpemilik`, `idras_hewan`) VALUES
+(11, 'Sumbul', '2025-06-12', 'Hitam', 'J', 6, 18),
+(12, 'Galaxy Destroyer', '2025-06-11', 'Hitam', 'J', 7, 4);
 
 -- --------------------------------------------------------
 
@@ -281,11 +305,18 @@ CREATE TABLE `rekam_medis` (
   `idrekam_medis` int NOT NULL,
   `idreservasi_dokter` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `anamnesa` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `anamesis` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `temuan_klinis` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `diagnosa` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `dokter_pemeriksa` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rekam_medis`
+--
+
+INSERT INTO `rekam_medis` (`idrekam_medis`, `idreservasi_dokter`, `created_at`, `anamesis`, `temuan_klinis`, `diagnosa`, `dokter_pemeriksa`) VALUES
+(3, 17, '2025-09-21 20:21:12', 'Anjing tidak mau makan dan muntah sejak kemarin.', 'Suhu tubuh 40°C, dehidrasi ringan, bulu kusam.', 'Gastroenteritis pada Anjing', 14);
 
 -- --------------------------------------------------------
 
@@ -306,7 +337,8 @@ INSERT INTO `role` (`idrole`, `nama_role`) VALUES
 (1, 'Administrator'),
 (2, 'Dokter'),
 (3, 'Perawat'),
-(4, 'Resepsionis');
+(4, 'Resepsionis'),
+(5, 'Pemilik');
 
 -- --------------------------------------------------------
 
@@ -326,20 +358,16 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`idrole_user`, `iduser`, `idrole`, `status`) VALUES
-(1, 6, 1, 1),
-(2, 6, 3, 0),
-(10, 11, 1, 1),
-(11, 9, 1, 1),
-(12, 9, 2, 0),
-(13, 10, 3, 0),
 (14, 10, 2, 1),
-(15, 27, 1, 1),
-(16, 28, 1, 1),
-(17, 28, 2, 0),
-(18, 28, 3, 0),
-(19, 8, 1, 1),
-(20, 28, 4, 0),
-(21, 27, 2, 1);
+(23, 27, 4, 1),
+(24, 28, 2, 1),
+(26, 33, 5, 1),
+(27, 9, 5, 1),
+(28, 34, 3, 1),
+(29, 6, 1, 1),
+(30, 6, 3, 0),
+(32, 35, 5, 1),
+(33, 36, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -355,6 +383,15 @@ CREATE TABLE `temu_dokter` (
   `idpet` int NOT NULL,
   `idrole_user` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `temu_dokter`
+--
+
+INSERT INTO `temu_dokter` (`idreservasi_dokter`, `no_urut`, `waktu_daftar`, `status`, `idpet`, `idrole_user`) VALUES
+(17, 1, '2025-09-21 12:28:04', '0', 11, 14),
+(18, 1, '2025-09-22 04:42:21', '0', 11, 14),
+(19, 1, '2025-10-06 06:50:54', '0', 12, 24);
 
 -- --------------------------------------------------------
 
@@ -388,14 +425,14 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`iduser`, `nama`, `email`, `password`) VALUES
 (6, 'admin', 'admin@mail.com', '$2y$10$V8ZlMp6ICQzYc/Eb8RwPluPeK5REwS9htuCJLNTkwAXXl.L7M.3Di'),
-(8, 'test', 'test@gmail.com', '123456'),
-(9, 'rozan', 'rozan@gmail.com', '$2y$10$bZ0n/NTpzD2U38SAQmhsQO1YRTqLFvP5pYQEY7oiaBMKKtsEI.F22'),
-(10, 'aiman r', 'aiman@gmail.com', '$2y$10$9fXhPidL8UeqQe.zMwTDvu4GizW1lELJ4bZ//O8ke9MNSyH45gXAO'),
-(11, 'test1', 'test1@gmail.com', '$2y$10$n1aSaq0f25nyGQDisgKpoeo.hhkWYzol/EODVR4djYplQuC218k1u'),
-(26, 'Rozan Rmdn', 'rozan@example.com', ''),
-(27, 'aiman', 'aiman@mail.com', '$2y$10$CWqBrMIqUbPUHkHNh.2VyuKpBiqClT65243Hft9iVA3NX/EoKNxe2'),
-(28, 'James se', 'james@gmail.com', '$2y$10$3j/xIpr7oLV9iyQXpH4eke/OLCDsP/owwYh/JjMMBSInLWi170D5O'),
-(31, 'Cukurukuk', 'cuku@gmail.com', '$2y$10$kO2vPDNU.tMWqd99AchbzejIJY41KalO5G0Ad8skaHN4.oVPvLxQW');
+(9, 'rozan', 'rozan@gmail.com', '$2y$10$x0sTz7/GAJqLumJJR2ALTugVrF8hlKCblfghgWyXaZih./MjWAWuO'),
+(10, 'John', 'aiman@gmail.com', '$2y$10$9fXhPidL8UeqQe.zMwTDvu4GizW1lELJ4bZ//O8ke9MNSyH45gXAO'),
+(27, 'aiman', 'aiman@mail.com', '$2y$10$rpyKuHq4MFKguloYjZl6XeBJVOvLuj9B6Tkx7LuEkxrDN4qt3M/ya'),
+(28, 'James', 'james@gmail.com', '$2y$10$nJKqu2iowzb/ZvYaqPLkk.KZmvtSfx.0g0WaDWxPVx9O/oapsDmx6'),
+(33, 'Mich', 'mich@gmail.com', '$2y$10$E9.HKJploE5TiHmzRaFAIuStApv92rw63MBH6JkaeVoHnkW9lCyii'),
+(34, 'Perawat', 'perawat@gmail.com', '$2y$10$W93n.qXld4kcGAY5TFAE.uo4liVvgh8f8IntLE/7wv9fuWQkzQnpm'),
+(35, 'Oliver Sykes', 'oliver@gmail.com', '$2y$10$3I0ezyG.aTO83AcpARMGxeUMxIkIMrkWGUZMKx69gxCiKZo0.L9P.'),
+(36, 'Liam Gallagher', 'liam@gmail.com', '$2y$10$aq4KfGV3JaVzWMlJCn2f.OgxPzzZiqkMN4P8a6IGFm8R3/3ZUcvEC');
 
 --
 -- Indexes for dumped tables
@@ -521,7 +558,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_rekam_medis`
 --
 ALTER TABLE `detail_rekam_medis`
-  MODIFY `iddetail_rekam_medis` int NOT NULL AUTO_INCREMENT;
+  MODIFY `iddetail_rekam_medis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jenis_hewan`
@@ -530,16 +567,34 @@ ALTER TABLE `jenis_hewan`
   MODIFY `idjenis_hewan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `idkategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `kategori_klinis`
+--
+ALTER TABLE `kategori_klinis`
+  MODIFY `idkategori_klinis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `kode_tindakan_terapi`
 --
 ALTER TABLE `kode_tindakan_terapi`
-  MODIFY `idkode_tindakan_terapi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idkode_tindakan_terapi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `pemilik`
+--
+ALTER TABLE `pemilik`
+  MODIFY `idpemilik` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `idpet` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idpet` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `ras_hewan`
@@ -551,31 +606,31 @@ ALTER TABLE `ras_hewan`
 -- AUTO_INCREMENT for table `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
-  MODIFY `idrekam_medis` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idrekam_medis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `idrole` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idrole` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `idrole_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idrole_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `temu_dokter`
 --
 ALTER TABLE `temu_dokter`
-  MODIFY `idreservasi_dokter` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idreservasi_dokter` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `iduser` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
@@ -592,7 +647,6 @@ ALTER TABLE `detail_rekam_medis`
 -- Constraints for table `kode_tindakan_terapi`
 --
 ALTER TABLE `kode_tindakan_terapi`
-  ADD CONSTRAINT `fk_kode_tindakan_terapi_kategori1` FOREIGN KEY (`idkategori`) REFERENCES `kategori` (`idkategori`),
   ADD CONSTRAINT `fk_kode_tindakan_terapi_kategori_klinis1` FOREIGN KEY (`idkategori_klinis`) REFERENCES `kategori_klinis` (`idkategori_klinis`);
 
 --

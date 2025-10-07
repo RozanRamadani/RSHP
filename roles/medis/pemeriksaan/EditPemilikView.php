@@ -40,17 +40,29 @@ class EditPemilikView {
 
 // Eksekusi controller dan view
 $controller = new PemilikController();
+
+// untuk menyimpan string pesan
 $msg = '';
+
+// Dapatkan ID pemilik dari parameter GET
 $idpemilik = isset($_GET['id']) ? $_GET['id'] : null;
+
+// Validasi ID pemilik
 if (!$idpemilik) {
     echo '<script>alert("ID pemilik tidak ditemukan");window.location="PemilikView.php";</script>';
     exit;
 }
+
+// Ambil data pemilik berdasarkan ID
 $pemilik = $controller->show($idpemilik);
+
+// Validasi data pemilik
 if (!$pemilik) {
     echo '<script>alert("Data pemilik tidak ditemukan");window.location="PemilikView.php";</script>';
     exit;
 }
+
+// Proses update data jika form disubmit
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
     $no_wa = $_POST['no_wa'];
     $alamat = $_POST['alamat'];

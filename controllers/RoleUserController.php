@@ -6,9 +6,15 @@ class RoleUserController
     public function __construct()
     {
         $this->db = new Database();
+
+        // Ambil data user beserta role-nya
         $result = $this->db->select("SELECT u.iduser, u.nama, r.nama_role, ru.status FROM user as u LEFT JOIN role_user as ru ON u.iduser = ru.iduser LEFT JOIN role as r ON ru.idrole = r.idrole ORDER BY u.iduser");
         foreach ($result as $row) {
+
+            // Inisialisasi user jika belum ada
             $id = $row['iduser'];
+
+            // Jika user belum ada di array, tambahkan
             if (!isset($this->users[$id])) {
                 $this->users[$id] = [
                     'iduser' => $id,
@@ -16,6 +22,8 @@ class RoleUserController
                     'roles' => []
                 ];
             }
+
+            // Tambahkan role jika ada
             if ($row['nama_role']) {
                 $this->users[$id]['roles'][] = [
                     'nama_role' => $row['nama_role'],

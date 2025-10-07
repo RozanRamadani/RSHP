@@ -1,0 +1,441 @@
+/* Rekam Medis Pemilik View Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: 
+        linear-gradient(135deg, rgba(25, 118, 210, 0.7) 0%, rgba(144, 202, 249, 0.7) 100%),
+        url('../img/petCare.webp') center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.rekam-medis-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: calc(100vh - 120px);
+}
+
+.rekam-medis-title {
+    font-size: 2.2em;
+    color: #ffffff;
+    text-align: center;
+    margin: 20px 0 30px 0;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.tambah-rekammedis-btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1976D2;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tambah-rekammedis-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    color: #1976D2;
+    text-decoration: none;
+}
+
+.msg-error {
+    background: rgba(255, 235, 238, 0.95);
+    color: #c62828;
+    border: 1px solid #f44336;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 500;
+    margin: 20px 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.rekam-medis-table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.rekam-medis-table th {
+    background: linear-gradient(135deg, #1976D2, #1565C0);
+    color: #ffffff;
+    padding: 16px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+    border: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.rekam-medis-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid rgba(25, 118, 210, 0.1);
+    color: #333;
+    font-size: 0.8em;
+    border: none;
+    vertical-align: middle;
+}
+
+.rekam-medis-table tr:nth-child(even) {
+    background: rgba(227, 242, 253, 0.3);
+}
+
+.rekam-medis-table tr:hover {
+    background: rgba(25, 118, 210, 0.1);
+    transform: scale(1.005);
+    transition: all 0.2s ease;
+}
+
+.rekam-medis-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Medical Record ID Styling */
+.id-rekam-medis {
+    background: rgba(25, 118, 210, 0.1);
+    color: #1565c0;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75em;
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    display: inline-block;
+    min-width: 50px;
+}
+
+/* Pet Name Styling */
+.pet-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Date Styling */
+.date-created {
+    font-size: 0.75em;
+    color: #666;
+    background: rgba(96, 125, 139, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Medical Text Styling */
+.medical-text {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.75em;
+    color: #555;
+    text-align: left;
+    padding: 4px;
+}
+
+.medical-text:hover {
+    white-space: normal;
+    max-width: none;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 10;
+    position: relative;
+}
+
+/* Doctor Name Styling */
+.doctor-name {
+    color: #1976d2;
+    font-weight: 500;
+    font-size: 0.8em;
+}
+
+/* Action Buttons */
+.action-buttons {
+    padding: 8px 4px;
+}
+
+.btn-view-detail {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.75em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.btn-view-detail:hover {
+    background: linear-gradient(135deg, #45a049, #388e3c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Detail View Specific Styles */
+.detail-info-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-info-card h3 {
+    color: #1976D2;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(25, 118, 210, 0.2);
+    padding-bottom: 8px;
+}
+
+.detail-info-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.detail-info-card strong {
+    color: #1565C0;
+    font-weight: 600;
+}
+
+/* Therapy Details Table */
+.therapy-section {
+    margin-top: 30px;
+}
+
+.therapy-section h3 {
+    color: #ffffff;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Code Styling */
+.therapy-code {
+    background: rgba(33, 150, 243, 0.1);
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8em;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+/* Category Styling */
+.category-badge {
+    background: rgba(156, 39, 176, 0.1);
+    color: #7b1fa2;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 500;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.clinical-category-badge {
+    background: rgba(255, 152, 0, 0.1);
+    color: #f57c00;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 500;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .rekam-medis-container {
+        padding: 20px 15px;
+    }
+    
+    .rekam-medis-table {
+        font-size: 0.75em;
+    }
+    
+    .rekam-medis-table th,
+    .rekam-medis-table td {
+        padding: 8px 4px;
+    }
+    
+    .medical-text {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rekam-medis-title {
+        font-size: 1.8em;
+    }
+    
+    .rekam-medis-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .rekam-medis-table th,
+    .rekam-medis-table td {
+        min-width: 80px;
+        padding: 6px 3px;
+        font-size: 0.7em;
+    }
+    
+    .medical-text {
+        max-width: 80px;
+    }
+    
+    .detail-info-card {
+        padding: 15px;
+    }
+    
+    .detail-info-card h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .rekam-medis-container {
+        padding: 15px 10px;
+    }
+    
+    .rekam-medis-title {
+        font-size: 1.5em;
+    }
+    
+    .tambah-rekammedis-btn {
+        display: block;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 20px auto;
+    }
+    
+    .rekam-medis-table {
+        font-size: 0.65em;
+    }
+    
+    .rekam-medis-table th,
+    .rekam-medis-table td {
+        min-width: 60px;
+        padding: 4px 2px;
+    }
+    
+    .medical-text {
+        max-width: 60px;
+    }
+    
+    .btn-view-detail {
+        font-size: 0.7em;
+        padding: 4px 8px;
+    }
+}
+
+/* Animation for table rows */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rekam-medis-table tr {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.rekam-medis-table tr:nth-child(1) { animation-delay: 0.1s; }
+.rekam-medis-table tr:nth-child(2) { animation-delay: 0.15s; }
+.rekam-medis-table tr:nth-child(3) { animation-delay: 0.2s; }
+.rekam-medis-table tr:nth-child(4) { animation-delay: 0.25s; }
+.rekam-medis-table tr:nth-child(5) { animation-delay: 0.3s; }
+.rekam-medis-table tr:nth-child(n+6) { animation-delay: 0.35s; }
+
+/* Detail card animation */
+.detail-info-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Glass morphism effect enhancement */
+.rekam-medis-table::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.rekam-medis-table {
+    position: relative;
+}
+
+/* Custom scrollbar for mobile */
+@media (max-width: 768px) {
+    .rekam-medis-table::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .rekam-medis-table::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    .rekam-medis-table::-webkit-scrollbar-thumb {
+        background: rgba(25, 118, 210, 0.5);
+        border-radius: 3px;
+    }
+    
+    .rekam-medis-table::-webkit-scrollbar-thumb:hover {
+        background: rgba(25, 118, 210, 0.7);
+    }
+}
+
+/* Enhanced hover effects */
+.rekam-medis-table tbody tr:hover .id-rekam-medis {
+    background: rgba(25, 118, 210, 0.2);
+    border-color: rgba(25, 118, 210, 0.5);
+}
+
+.rekam-medis-table tbody tr:hover .pet-name {
+    color: #1976d2;
+}
+
+.rekam-medis-table tbody tr:hover .doctor-name {
+    color: #0d47a1;
+}

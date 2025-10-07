@@ -51,11 +51,10 @@
         <?php
         require_once __DIR__ . '/../../controllers/TemuDokterController.php';
         require_once __DIR__ . '/../../models/Pet.php';
-        require_once __DIR__ . '/../../models/User.php';
-        $temuController = new TemuDokterController();
-        $antrian = $temuController->getAntrianHariIni();
-        $dokterList = User::getAllDokter();
-        $userList = User::getAllUsers();
+    require_once __DIR__ . '/../../models/RoleUser.php';
+    $temuController = new TemuDokterController();
+    $antrian = $temuController->getAntrianHariIni();
+    $dokterList = RoleUser::getDokterList();
         ?>
         <div class="dashboard-card">
             <h3 class="antrian-title">Antrian Temu Dokter Hari Ini</h3>
@@ -75,9 +74,9 @@
                             $pet = Pet::getById($row['idpet']);
                             $petNama = $pet ? $pet['nama'] : $row['idpet'];
                             $dokterNama = $row['idrole_user'];
-                            foreach ($userList as $user) {
-                                if ($user['iduser'] == $row['idrole_user']) {
-                                    $dokterNama = $user['nama'];
+                            foreach ($dokterList as $dokter) {
+                                if ($dokter['idrole_user'] == $row['idrole_user']) {
+                                    $dokterNama = $dokter['nama'];
                                     break;
                                 }
                             }
@@ -87,7 +86,13 @@
                             <td><?= htmlspecialchars($petNama) ?></td>
                             <td><?= htmlspecialchars($dokterNama) ?></td>
                             <td><?= $row['waktu_daftar'] ?></td>
-                            <td><?= $row['status'] == 'M' ? 'Menunggu' : $row['status'] ?></td>
+                            <td><?php 
+                                $status = $row['status'];
+                                if ($status == '0' || $status == 0) echo 'Menunggu';
+                                elseif ($status == '1' || $status == 1) echo 'Selesai';
+                                elseif ($status == 'M') echo 'Menunggu';
+                                else echo $status;
+                            ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

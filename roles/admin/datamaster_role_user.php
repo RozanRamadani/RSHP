@@ -54,7 +54,13 @@ class RoleUserView
                                     <span class="role-badge inactive">Belum ada role</span>
                                 <?php endif; ?>
                             </td>
-                            <td><a class="aksi-link tambah-role-btn" href="tambah_role.php?iduser=<?= $user['iduser'] ?>">Tambah Role</a></td>
+                            <td>
+                                <a class="aksi-link tambah-role-btn" href="tambah_role.php?iduser=<?= $user['iduser'] ?>">Tambah Role</a>
+                                <a class="aksi-link edit-role-btn" href="edit_role.php?iduser=<?= $user['iduser'] ?>">Edit Role</a>
+                                <?php if (count($user['roles']) > 0): ?>
+                                    <a class="aksi-link hapus-role-btn" href="hapus_role.php?iduser=<?= $user['iduser'] ?>">Hapus Role</a>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>

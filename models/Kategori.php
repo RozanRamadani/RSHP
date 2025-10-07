@@ -3,12 +3,16 @@ require_once __DIR__ . '/../databases/koneksi.php';
 
 class Kategori
 {
+
+	// Ambil semua data kategori
 	public static function getAll()
 	{
 		$db = new Database();
 		$sql = "SELECT * FROM kategori";
 		return $db->select($sql);
 	}
+
+	// Tambah data kategori
 	public static function insert($nama_kategori)
 	{
 		$db = new Database();
@@ -16,6 +20,7 @@ class Kategori
 		return $db->execute($sql, [$nama_kategori], 's');
 	}
 
+	// Update data kategori
 	public static function update($idkategori, $nama_kategori)
 	{
 		$db = new Database();
@@ -23,6 +28,7 @@ class Kategori
 		return $db->execute($sql, [$nama_kategori, $idkategori], 'si');
 	}
 
+	// Hapus data kategori
 	public static function delete($idkategori)
 	{
 		$db = new Database();
@@ -30,6 +36,7 @@ class Kategori
 		return $db->execute($sql, [$idkategori], 'i');
 	}
 
+	// Ambil data kategori berdasarkan ID
 	public static function getById($idkategori)
 	{
 		$db = new Database();

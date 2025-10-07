@@ -112,3 +112,235 @@ button:hover {
 	color: #2587a3;
 	font-weight: 500;
 }
+
+/* Toggle User Option Styling */
+.user-option-toggle {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 20px;
+	padding: 15px;
+	background: #f0f8ff;
+	border-radius: 8px;
+	border: 1px solid #b5d6e0;
+}
+
+.toggle-option {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-weight: 500;
+	color: #333;
+}
+
+.toggle-option input[type="radio"] {
+	width: auto;
+	margin-right: 8px;
+	margin-bottom: 0;
+	accent-color: #36a2c2;
+}
+
+.toggle-option span {
+	font-size: 0.95em;
+}
+
+/* New User Registration Section */
+.new-user-fields {
+	background: #f8fdff;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #b5d6e0;
+	margin-bottom: 20px;
+}
+
+.new-user-fields h3 {
+	color: #2587a3;
+	margin: 0 0 15px 0;
+	font-size: 1.1em;
+}
+
+.auto-role-info {
+	background: #e8f5e8;
+	padding: 8px 12px;
+	border-radius: 5px;
+	border: 1px solid #4caf50;
+	margin-top: 10px;
+}
+
+.auto-role-info small {
+	color: #2e7d32;
+	font-weight: 500;
+}
+
+/* Pemilik Information Section */
+.pemilik-info {
+	background: #fff8f0;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #ffd54f;
+	margin-bottom: 20px;
+}
+
+.pemilik-info h3 {
+	color: #f57c00;
+	margin: 0 0 15px 0;
+	font-size: 1.1em;
+}
+
+/* Form Actions */
+.form-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+	padding-top: 15px;
+	border-top: 1px solid #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+	.tambah-pemilik_container {
+		max-width: 95%;
+		margin: 20px auto;
+		padding: 20px 15px;
+	}
+	
+	.user-option-toggle {
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	.form-actions {
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	.form-actions .back-link,
+	.form-actions button {
+		width: 100%;
+		text-align: center;
+		margin: 0;
+	}
+}
+
+/* Enhanced input styling for new user section */
+#new-user-section input[type="text"],
+#new-user-section input[type="email"],
+#new-user-section input[type="password"] {
+	background: #ffffff;
+	border-color: #36a2c2;
+}
+
+#new-user-section input:focus {
+	outline: 2px solid #2587a3;
+	border-color: #2587a3;
+	box-shadow: 0 0 0 3px rgba(54, 162, 194, 0.1);
+}
+
+/* Hidden state for sections */
+.hidden {
+	display: none !important;
+	animation: fadeOut 0.3s ease-out;
+}
+
+.visible {
+	display: block !important;
+	animation: fadeIn 0.3s ease-in;
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(-10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+	from { opacity: 1; transform: translateY(0); }
+	to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Error styling */
+.error-message {
+	color: #d32f2f;
+	font-size: 0.9em;
+	margin-top: 5px;
+	padding: 5px 10px;
+	background: #ffebee;
+	border-radius: 4px;
+	border: 1px solid #ffcdd2;
+}
+
+/* Success styling */
+.success-message {
+	color: #2e7d32;
+	font-size: 0.9em;
+	margin-top: 5px;
+	padding: 5px 10px;
+	background: #e8f5e8;
+	border-radius: 4px;
+	border: 1px solid #4caf50;
+}
+
+/* Form section transitions */
+.form-section {
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+/* Loading state for form */
+.form-loading {
+	position: relative;
+	pointer-events: none;
+	opacity: 0.7;
+}
+
+.form-loading::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0 0 -10px;
+	border: 2px solid #36a2c2;
+	border-top: 2px solid transparent;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Error input styling */
+input.error,
+select.error,
+textarea.error {
+	border-color: #d32f2f !important;
+	background-color: #ffebee !important;
+	box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2) !important;
+}
+
+input.error:focus,
+select.error:focus,
+textarea.error:focus {
+	outline: 2px solid #d32f2f !important;
+	border-color: #d32f2f !important;
+	box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1) !important;
+}
+
+/* Section visibility override */
+#existing-user-section,
+#new-user-section {
+	display: block;
+}
+
+#existing-user-section.hidden,
+#new-user-section.hidden {
+	display: none !important;
+}
+
+#existing-user-section.visible,
+#new-user-section.visible {
+	display: block !important;
+}

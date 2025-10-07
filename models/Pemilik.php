@@ -6,8 +6,9 @@ require_once __DIR__ . '/Role.php';
 class Pemilik extends User {
     protected $id_pemilik;
 
-    public function set_password($password) {
-        $this->password = $password;
+    // setter untuk id_pemilik
+    public function set_id_pemilik($id_pemilik) {
+        $this->id_pemilik = $id_pemilik;
     }
 
     // override set_data_user agar bisa set id_pemilik
@@ -16,17 +17,21 @@ class Pemilik extends User {
         $this->id_pemilik = $iduser; // asumsikan id_pemilik sama dengan iduser
     }
 
-    // override create agar hanya insert ke tabel pemilik
+    // atribut tambahan untuk pemilik
     public $no_wa;
     public $alamat;
 
+    // setter untuk no_wa
     public function set_no_wa($no_wa) {
         $this->no_wa = $no_wa;
     }
+
+    // setter untuk alamat
     public function set_alamat($alamat) {
         $this->alamat = $alamat;
     }
 
+    // override create: insert ke tabel pemilik dan assign role 'Pemilik' ke user
     public function create(): bool|string {
         $db = new Database();
         // 1. Insert ke tabel pemilik
@@ -64,5 +69,13 @@ class Pemilik extends User {
         } else {
             return new Respon(false, "User not found", []);
         }
+    }
+
+    // Ambil data pemilik berdasarkan iduser
+    public static function getByUserId($iduser) {
+        $db = new Database();
+        $sql = "SELECT * FROM pemilik WHERE iduser = ?";
+        $result = $db->select($sql, [$iduser], 'i');
+        return $result ? $result[0] : null;
     }
 }

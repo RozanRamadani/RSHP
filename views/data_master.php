@@ -25,8 +25,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role_aktif'] != '1') {
         <div class="master-menu">
             <a class="master-card" href="/roles/admin/data_user.php"><span class="icon">👤</span> Data User</a>
             <a class="master-card" href="/roles/admin/datamaster_role_user.php"><span class="icon">🛡️</span> Manajemen Role</a>
-            <a class="master-card" href="/roles/animal/RasHewanView.php"><span class="icon">🛡️</span> Ras Hewan</a>
-            <a class="master-card" href="/roles/animal/JenisHewanView.php"><span class="icon">🛡️</span> Jenis Hewan</a>
+            <a class="master-card" href="/roles/animal/RasHewanView.php"><span class="icon">🐶</span> Ras Hewan</a>
+            <a class="master-card" href="/roles/animal/JenisHewanView.php"><span class="icon">🐾</span> Jenis Hewan</a>
         </div>
     </div>
 </body>

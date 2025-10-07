@@ -1,0 +1,208 @@
+/* Notifikasi pesan sukses dan error */
+.msg-success {
+	background: #e8f5e9;
+	color: #388e3c;
+	border-radius: 6px;
+	padding: 10px 18px;
+	margin-bottom: 16px;
+	font-size: 1.08em;
+	font-weight: 500;
+	text-align: center;
+}
+.msg-error {
+	background: #ffebee;
+	color: #d32f2f;
+	border-radius: 6px;
+	padding: 10px 18px;
+	margin-bottom: 16px;
+	font-size: 1.08em;
+	font-weight: 500;
+	text-align: center;
+}
+.detail-action-buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+}
+.btn-edit-detail {
+	background: #ffeb3b;
+	color: #333;
+	border: 1px solid #fbc02d;
+	border-radius: 6px;
+	padding: 7px 16px;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-edit-detail:hover {
+	background: #fbc02d;
+	color: #222;
+}
+.btn-delete-detail {
+	background: #e53935;
+	color: #fff;
+	border: 1px solid #b71c1c;
+	border-radius: 6px;
+	padding: 7px 16px;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-delete-detail:hover {
+	background: #b71c1c;
+	color: #fff;
+}
+.rekam-medis-table td .btn-tambah-detail,
+.rekam-medis-table td .btn-view-detail,
+.rekam-medis-table td .btn-edit-rekammedis,
+.rekam-medis-table td .btn-delete-rekammedis {
+	margin-bottom: 0;
+	margin-right: 8px;
+}
+.rekam-medis-table td {
+	vertical-align: middle;
+}
+.rekam-medis-table td.action-buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: minmax(38px, auto);
+	gap: 10px;
+	justify-items: center;
+	align-items: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+/* Tombol aksi detail rekam medis */
+.btn-tambah-detail, .btn-view-detail, .btn-edit-rekammedis, .btn-delete-rekammedis {
+	display: inline-block;
+	padding: 7px 16px;
+	margin: 4px 4px 0 0;
+	border-radius: 6px;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.btn-edit-rekammedis {
+	background: #ffeb3b;
+	color: #333;
+	border: 1px solid #fbc02d;
+}
+.btn-edit-rekammedis:hover {
+	background: #fbc02d;
+	color: #222;
+}
+.btn-delete-rekammedis {
+	background: #e53935;
+	color: #fff;
+	border: 1px solid #b71c1c;
+}
+.btn-delete-rekammedis:hover {
+	background: #b71c1c;
+	color: #fff;
+}
+.btn-tambah-detail {
+	background: #1976d2;
+	color: #fff;
+}
+.btn-tambah-detail:hover {
+	background: #1565c0;
+}
+.btn-view-detail {
+	background: #e3eafc;
+	color: #1976d2;
+	border: 1px solid #bcdffb;
+}
+.btn-view-detail:hover {
+	background: #cfd8dc;
+	color: #0d47a1;
+}
+.tambah-rekammedis-btn {
+	display: inline-block;
+	background: #36a2c2;
+	color: #fff;
+	padding: 8px 18px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 600;
+	margin-bottom: 16px;
+	transition: background 0.2s;
+	font-size: 1.1em;
+	border: none;
+	cursor: pointer;
+}
+.tambah-rekammedis-btn:hover {
+	background: #2587a3;
+}
+body {
+	background: #f4f8fb;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.rekam-medis-container {
+	max-width: 1000px;
+	margin: 40px auto 0 auto;
+	background: #fff;
+	padding: 32px 32px 24px 32px;
+	border-radius: 10px;
+	box-shadow: 0 4px 16px rgba(54, 162, 194, 0.10);
+}
+
+.rekam-medis-title {
+	color: #2587a3;
+	text-align: center;
+	margin-bottom: 24px;
+	font-size: 2em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	width: 100%;
+}
+
+.rekam-medis-table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+}
+
+.rekam-medis-table th,
+.rekam-medis-table td {
+	border: 1px solid #b5d6e0;
+	padding: 12px 10px;
+	text-align: left;
+	font-size: 1em;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.rekam-medis-table th {
+	background: #36a2c2;
+	color: #fff;
+	font-weight: 700;
+}
+
+.rekam-medis-table tr:nth-child(even) {
+	background: #f4f8fb;
+}
+
+.rekam-medis-table tr:hover {
+	background: #e6f6fa;
+}
+
+
+@media (max-width: 600px) {
+	.rekam-medis-container {
+		padding: 12px 2px;
+	}
+	.rekam-medis-table th,
+	.rekam-medis-table td {
+		padding: 8px 4px;
+		font-size: 0.98em;
+	}
+}

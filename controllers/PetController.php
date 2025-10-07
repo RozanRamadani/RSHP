@@ -1,27 +1,39 @@
 <?php
 require_once __DIR__ . '/../models/Pet.php';
 
-class PetController {
+class PetController
+{
     private $model;
     public $petList = [];
-    public function __construct() {
+
+    // Konstruktor - method inisialisasi objek
+    public function __construct()
+    {
         $this->model = new Pet();
         $this->petList = $this->model->getAll();
     }
 
-    public function store($nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan) {
+    // Method untuk operasi tambah data hewan peliharaan
+    public function store($nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan)
+    {
         return Pet::create($nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan);
     }
 
-        public function getById($idpet) {
-            return Pet::getById($idpet);
-        }
+    // Method untuk mengambil data hewan peliharaan berdasarkan ID
+    public function getById($idpet)
+    {
+        return Pet::getById($idpet);
+    }
 
-        public function update($idpet, $nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan) {
-            return Pet::update($idpet, $nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan);
-        }
+    // Method untuk operasi ubah data hewan peliharaan
+    public function update($idpet, $nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan)
+    {
+        return Pet::update($idpet, $nama, $tanggal_lahir, $warna_tanda, $jenis_kelamin, $idpemilik, $idras_hewan);
+    }
 
-        public function delete($idpet) {
-            return Pet::delete($idpet);
-        }
+    // Method untuk operasi hapus data hewan peliharaan
+    public function delete($idpet)
+    {
+        return Pet::delete($idpet);
+    }
 }

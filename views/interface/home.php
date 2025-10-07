@@ -1,12 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumah Sakit Hewan Pendidikan</title>
-</head>
-<body>
-    
-</body>
 </html>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,11 +10,12 @@
 <body>
     <nav class="navbar">
         <ul>
+            <li><a href="../../roles/pemilik/dashboard_pemilik.php">Dashboard</a></li>
             <li><a href="home.php">Home</a></li>
             <li><a href="struktur.php">Struktur Organisasi</a></li>
             <li><a href="layanan.php">Layanan Umum</a></li>
             <li><a href="visi.php">Visi Misi dan Tujuan</a></li>
-            <li class="login"><a href="../views/auth/login.php">Login</a></li>
+            <li><a href="../auth/login.php" class="login">Login</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -36,6 +28,6 @@
             <p>RSHP terus berinovasi dalam memberikan layanan, seperti pengembangan laboratorium diagnostik, layanan rawat inap, serta konsultasi kesehatan hewan secara daring. Kami juga aktif dalam kegiatan pengabdian masyarakat dan edukasi tentang pentingnya kesehatan hewan bagi lingkungan dan manusia.</p>
         </section>
     </div>
-    <?php include('partials/footer.php'); ?>
+    <?php include('../partials/footer.php'); ?>
 </body>
 </html>
